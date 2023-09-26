@@ -38,5 +38,15 @@ namespace Parcels.Tests
       int actualVolume = newPackage.CalcVolume();
       Assert.AreEqual(expectedVolume, actualVolume);      
     }
+
+    [TestMethod]
+    public void CalcCost_ReturnsCostPriceOfPackage_int()
+    {
+      int expectedPrice = 8000;
+      Package newPackage = new Package(5, 2, 8, 500);
+      int actualVolume = newPackage.CalcVolume();
+      int actualPrice = newPackage.CalcCost(actualVolume);
+      Assert.AreEqual(expectedPrice, actualPrice);
+    }
   }
 }

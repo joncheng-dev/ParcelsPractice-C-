@@ -24,5 +24,11 @@ namespace Parcels.Models
     {
       return Length * Width * Height;
     }
+
+    public int CalcCost(int CalcVolume)
+    {
+      int price = 100 * CalcVolume;
+      return price;
+    }
   }
 }
