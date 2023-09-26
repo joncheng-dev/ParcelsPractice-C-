@@ -19,5 +19,10 @@ namespace Parcels.Models
       Height = pkgHeight;
       Weight = pkgWeight;
     }
+
+    public int CalcVolume()
+    {
+      return Length * Width * Height;
+    }
   }
 }

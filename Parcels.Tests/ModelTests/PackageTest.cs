@@ -29,5 +29,14 @@ namespace Parcels.Tests
       Assert.AreEqual(expectedHeight, newPackage.Height);
       Assert.AreEqual(expectedWeight, newPackage.Weight);
     }
+
+    [TestMethod]
+    public void CalcVolume_ReturnsVolumeOfPackage_Int()
+    {
+      int expectedVolume = 80;
+      Package newPackage = new Package(5, 2, 8, 500);
+      int actualVolume = newPackage.CalcVolume();
+      Assert.AreEqual(expectedVolume, actualVolume);      
+    }
   }
 }
