@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Parcels.Models
 {
@@ -10,25 +11,30 @@ namespace Parcels.Models
     public int Height { get; } // how tall
     // Package Mass
     public int Weight { get; } // how heavy
+    public int Volume { get; set; }
+    public int Cost { get; set; }
 
     // Package Instance Constructor
-    public Package(int pkgLength, int pkgWidth, int pkgHeight, int pkgWeight)
+    public Package(string pkgLength, string pkgWidth, string pkgHeight, string pkgWeight)
     {
-      Length = pkgLength;
-      Width = pkgWidth;
-      Height = pkgHeight;
-      Weight = pkgWeight;
+      Length = int.Parse(pkgLength);
+      Width = int.Parse(pkgWidth);
+      Height = int.Parse(pkgHeight);
+      Weight = int.Parse(pkgWeight);
+      CalcVolume();
+      CalcCost(Volume);
     }
 
-    public int CalcVolume()
+    public void CalcVolume()
     {
-      return Length * Width * Height;
+      int volume = Length * Width * Height;
+      Volume = volume;
     }
 
-    public int CalcCost(int CalcVolume)
+    public void CalcCost(int CalcVolume)
     {
-      int price = 100 * CalcVolume;
-      return price;
+      int cost = 100 * CalcVolume;
+      Cost = cost;
     }
   }
 }
